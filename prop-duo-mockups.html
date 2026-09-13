@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prop — guitar stand for iPhone Duo — mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1c1915;        /* stage floor */
+  --bg2:#26221d;
+  --ink:#ede6d8;       /* cream */
+  --ink2:#a89f8f;
+  --ti:#cfcbc2;        /* titanium */
+  --ti2:#8d8a83;
+  --glass:#09090a;
+  --tune:#4be378;      /* in tune */
+  --flat:#f2b441;      /* off */
+  --far:#e5573a;       /* way off */
+  --ios:#0b0b0d;
+  --iosbar:#16161a;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%}
+body{line-height:1.5}
+main{max-width:720px;margin:0 auto;padding:40px 20px 96px}
+h1{font-family:var(--serif);font-weight:300;font-size:clamp(34px,7vw,52px);line-height:1.02;letter-spacing:-.01em;margin:0 0 10px}
+h1 em{font-style:italic;font-weight:500}
+.lede{color:var(--ink2);font-size:16px;max-width:52ch;margin:0 0 56px}
+section{margin:0 0 84px}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(24px,4.6vw,30px);line-height:1.15;letter-spacing:-.01em;margin:0 0 6px}
+.pose{color:var(--ink2);font-size:14px;margin:0 0 20px}
+p.note{color:var(--ink2);font-size:15px;max-width:56ch;margin:18px 0 0}
+p.note b{color:var(--ink);font-weight:600}
+
+/* ---- device primitives ---- */
+.stage{display:flex;justify-content:center;align-items:flex-end;gap:22px;flex-wrap:wrap;padding:12px 0}
+.stage.tents>div{width:100%;max-width:320px}
+.stage.tents{overflow:hidden;margin:0 -20px;padding:12px 20px}
+main{overflow:hidden}
+.dev{position:relative;background:linear-gradient(160deg,#e6e3dc,#b9b6ae 45%,#dedbd3 70%,#a5a29b);border-radius:26px;padding:5px;box-shadow:0 30px 60px -20px rgba(0,0,0,.8),inset 0 0 0 1px rgba(255,255,255,.35)}
+.scr{background:var(--ios);border-radius:22px;overflow:hidden;position:relative;font-size:11px}
+.closed{width:150px}
+.closed .scr{height:300px}
+.open{width:100%;max-width:360px}
+.open .scr{height:360px}
+.open .scr::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.07) 20%,rgba(255,255,255,.07) 80%,transparent);pointer-events:none}
+.status{position:absolute;top:8px;left:0;right:0;display:flex;justify-content:space-between;padding:0 16px;font-size:9px;font-weight:600;color:#fff;opacity:.85;z-index:3}
+.cap{font-size:12px;color:var(--ink2);text-align:center;margin-top:12px}
+
+/* ---- tuner (closed) ---- */
+.tun{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;position:relative}
+.tun .note{font-family:var(--serif);font-weight:300;font-size:74px;line-height:1;letter-spacing:-.04em;color:#fff}
+.tun .note sub{font-size:22px;vertical-align:baseline;margin-left:2px;color:var(--ink2)}
+.tun .cents{font-variant-numeric:tabular-nums;font-size:13px;font-weight:600}
+.tun .word{font-size:10px;color:var(--ink2);margin-top:6px}
+.scale{position:relative;width:110px;height:34px;margin-top:14px}
+.scale i{position:absolute;bottom:0;width:1px;height:8px;background:#3a3a40}
+.scale i.mid{height:16px;width:2px;background:#fff}
+.scale .pin{position:absolute;bottom:0;width:3px;height:24px;border-radius:2px;transform:translateX(-50%)}
+.strings{position:absolute;bottom:16px;left:0;right:0;display:flex;justify-content:center;gap:7px}
+.strings b{width:14px;height:14px;border-radius:50%;border:1px solid #3a3a40;font-size:7px;display:grid;place-items:center;color:#6e6e76;font-weight:600}
+.strings b.on{border-color:var(--tune);color:var(--tune)}
+/* tent pose, like StandBy: hinge along the top, near half leaning back toward you,
+   far half folding down to the table behind it. Camera sits a little left and above. */
+.tent{position:relative;width:320px;height:230px;margin:0 auto;perspective:900px;perspective-origin:58% 40%}
+.tent .wash{position:absolute;left:150px;right:-100px;top:70px;bottom:0;z-index:0;border-radius:50%;background:radial-gradient(ellipse at 45% 60%,var(--halo) 0%,transparent 62%);filter:blur(28px);opacity:.5}
+.tent .table{position:absolute;left:30px;right:-80px;bottom:6px;height:60px;z-index:0;border-radius:50%;background:radial-gradient(ellipse at 60% 40%,var(--halo) 0%,transparent 60%);filter:blur(14px);opacity:.85}
+.tent .rig{position:absolute;left:30px;top:44px;width:232px;height:150px;transform-style:preserve-3d;transform:rotateY(-14deg)}
+.tent .near{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:bottom center;transform:rotateX(8deg);border-radius:12px;padding:6px;background:linear-gradient(200deg,#3a3936,#141311 55%,#262523);box-shadow:0 26px 40px -12px rgba(0,0,0,.9),inset 0 0 0 1px rgba(255,255,255,.07)}
+.tent .near .scr{height:100%;border-radius:8px;background:var(--ios)}
+.tent .far{position:absolute;left:0;right:0;bottom:100%;height:150px;transform-origin:bottom center;transform:rotateX(124deg);border-radius:12px;background:linear-gradient(180deg,color-mix(in srgb,var(--halo) 80%,#fff) 0%,var(--halo) 55%,color-mix(in srgb,var(--halo) 70%,#000));}
+.tent .far::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,transparent 55%,rgba(255,255,255,.14))}
+.tent .ridge{display:none}
+.tent .foot{position:absolute;left:50%;bottom:-2px;width:46px;height:4px;margin-left:-23px;border-radius:2px;background:#8d8a83;transform:translateZ(2px)}
+.tent .seam{display:none}
+.s-flat{--halo:var(--flat)}
+.s-tune{--halo:var(--tune)}
+.s-far{--halo:var(--far)}
+/* landscape tuner */
+.tunL{height:100%;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8px 14px;color:#fff}
+.tunL .note{font-family:var(--serif);font-weight:300;font-size:62px;line-height:1;letter-spacing:-.04em}
+.tunL .note sub{font-size:20px;vertical-align:baseline;margin-left:2px;color:var(--ink2)}
+.tunL .rhs{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.tunL .cents{font-variant-numeric:tabular-nums;font-size:15px;font-weight:700}
+.tunL .word{font-size:10px;color:var(--ink2)}
+.tunL .scale{position:relative;width:96px;height:26px}
+.tunL .scale i{position:absolute;bottom:0;width:1px;height:7px;background:#3a3a40}
+.tunL .scale i.mid{height:14px;width:2px;background:#fff}
+.tunL .scale .pin{position:absolute;bottom:0;width:3px;height:20px;border-radius:2px;transform:translateX(-50%)}
+.tunL .strings{grid-column:1/-1;display:flex;gap:6px;align-self:end}
+.tunL .strings b{width:16px;height:16px;border-radius:50%;border:1px solid #3a3a40;font-size:7px;display:grid;place-items:center;color:#6e6e76;font-weight:600}
+.tunL .strings b.on{border-color:var(--tune);color:var(--tune)}
+.s-flat .cents,.s-flat .tunL .cents{color:var(--flat)}.s-flat .pin{background:var(--flat)}
+.s-tune .cents,.s-tune .tunL .cents{color:var(--tune)}.s-tune .pin{background:var(--tune)}
+.s-far .cents,.s-far .tunL .cents{color:var(--far)}.s-far .pin{background:var(--far)}
+/* landscape click */
+.standL{height:100%;display:grid;grid-template-columns:1fr auto;align-items:center;padding:10px 16px;color:#fff}
+.standL .bpm{font-family:var(--serif);font-weight:300;font-size:58px;line-height:1;letter-spacing:-.04em}
+.standL .lbl{font-size:10px;color:var(--ink2);margin-top:4px}
+.standL .beat{display:flex;flex-direction:column;gap:5px;width:14px}
+.standL .beat i{height:12px;border-radius:3px;background:#2e2e35}
+.standL .beat i.on{background:var(--flat)}
+.s-tune .standL .beat i.on{background:var(--tune)}
+.stage.tents{gap:28px 34px}
+@keyframes settle{0%{opacity:.35}50%{opacity:.9}100%{opacity:.75}}
+.s-tune .wash,.s-tune .table{animation:settle 2.4s ease-out 1}
+@media (prefers-reduced-motion:reduce){.s-tune .wash,.s-tune .table{animation:none}}
+
+/* ---- half fold (stand) ---- */
+.fold{perspective:900px;perspective-origin:50% 30%;width:100%;max-width:360px;margin:0 auto}
+.fold .dev{padding:0;background:none;box-shadow:none;border-radius:0}
+.fold .half{width:100%;height:170px;background:linear-gradient(160deg,#e6e3dc,#b9b6ae 45%,#dedbd3 70%,#a5a29b);padding:5px;position:relative}
+.fold .top{border-radius:26px 26px 4px 4px;transform:rotateX(38deg);transform-origin:bottom center;box-shadow:0 -10px 30px rgba(0,0,0,.4)}
+.fold .bot{border-radius:4px 4px 26px 26px;transform:rotateX(-58deg);transform-origin:top center;box-shadow:0 40px 50px -10px rgba(0,0,0,.8)}
+.fold .scr{height:100%;border-radius:inherit}
+.fold .top .scr{border-radius:22px 22px 2px 2px}
+.fold .bot .scr{border-radius:2px 2px 22px 22px}
+.hinge{height:2px;background:linear-gradient(90deg,transparent,#5d5a53,transparent);position:relative;z-index:2}
+.chart{padding:14px 16px;height:100%;color:#fff}
+.chart .t{font-family:var(--serif);font-weight:500;font-size:15px;line-height:1.1;letter-spacing:-.01em}
+.chart .m{font-size:9px;color:var(--ink2);margin:2px 0 10px}
+.bars{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #2a2a30}
+.bars div{padding:6px 4px 4px;border-right:1px solid #2a2a30;border-bottom:1px solid #2a2a30;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+.bars div:nth-child(4n){border-right:0}
+.bars div span{display:block;font-size:8px;color:var(--ink2);font-weight:500;margin-top:2px}
+.bars div.now{background:rgba(75,227,120,.14);color:var(--tune)}
+.ctl{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:8px;padding:12px;height:100%}
+.pad{background:var(--iosbar);border-radius:14px;padding:10px;display:flex;flex-direction:column;justify-content:space-between;min-height:0}
+.pad .k{font-size:8px;color:var(--ink2);font-weight:600}
+.pad .v{font-family:var(--serif);font-weight:300;font-size:30px;line-height:1;color:#fff;letter-spacing:-.03em}
+.pad .v small{font-size:10px;color:var(--ink2);font-family:var(--sans);font-weight:600;margin-left:3px}
+.pad .row{display:flex;gap:4px;margin-top:6px}
+.pad .row b{flex:1;height:18px;border-radius:6px;background:#26262c;display:grid;place-items:center;font-size:9px;font-weight:700;color:#fff}
+.pad .row b.on{background:var(--tune);color:#06140a}
+.beat{display:flex;gap:4px;margin-top:8px}
+.beat i{flex:1;height:5px;border-radius:3px;background:#2e2e35}
+.beat i.on{background:#fff}
+.loop{height:6px;border-radius:3px;background:#2e2e35;position:relative;margin-top:10px}
+.loop b{position:absolute;left:22%;right:48%;top:0;bottom:0;border-radius:3px;background:var(--flat)}
+.loop i{position:absolute;left:31%;top:-3px;width:2px;height:12px;background:#fff}
+.mini{display:flex;align-items:center;gap:8px}
+.mini .dot{width:10px;height:10px;border-radius:50%;background:var(--tune);box-shadow:0 0 10px var(--tune)}
+
+/* ---- open (7.6") layouts ---- */
+.two{display:grid;grid-template-columns:38% 62%;height:100%;color:#fff}
+.side{background:var(--iosbar);padding:30px 10px 10px;border-right:1px solid #1f1f24}
+.side .h{font-family:var(--serif);font-size:14px;font-weight:500;margin:0 0 8px 4px}
+.side .row{padding:6px 6px;border-radius:8px;font-size:10px;font-weight:600;display:flex;justify-content:space-between}
+.side .row span{color:var(--ink2);font-weight:500;font-variant-numeric:tabular-nums}
+.side .row.on{background:#27272e}
+.side .sec{font-size:8px;color:var(--ink2);margin:10px 4px 4px}
+.body{padding:30px 14px 12px}
+.split{display:grid;grid-template-columns:1fr 1fr;height:100%;color:#fff}
+.split .l{padding:30px 12px 12px;border-right:1px solid #1f1f24}
+.split .r{padding:30px 12px 12px;display:flex;flex-direction:column;gap:8px}
+.vid{aspect-ratio:16/9;background:linear-gradient(135deg,#3a2f22,#1d1712);border-radius:10px;position:relative;display:grid;place-items:center}
+.vid::after{content:"";width:0;height:0;border-left:16px solid rgba(255,255,255,.85);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.vid b{position:absolute;bottom:6px;left:8px;font-size:8px;font-weight:600;color:#fff;opacity:.8}
+.scrub{height:4px;background:#2e2e35;border-radius:2px;position:relative}
+.scrub i{position:absolute;left:0;width:34%;top:0;bottom:0;background:#fff;border-radius:2px}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chips b{font-size:8px;font-weight:600;padding:4px 7px;border-radius:99px;background:#26262c}
+.chips b.on{background:var(--tune);color:#06140a}
+/* pencil ink */
+.ink{position:absolute;pointer-events:none}
+.ink path{fill:none;stroke:var(--flat);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ink text{fill:var(--flat);font-family:var(--serif);font-style:italic;font-size:11px}
+
+/* ---- cover screen standby ---- */
+.stand{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff}
+.stand .bpm{font-family:var(--serif);font-weight:300;font-size:64px;line-height:1;letter-spacing:-.04em}
+.stand .lbl{font-size:10px;color:var(--ink2);margin-top:2px}
+.stand .beat{width:90px;margin-top:22px}
+.stand .beat i{height:8px}
+.stand .beat i.on{background:var(--flat)}
+
+/* ---- feature list ---- */
+.feat{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid #33302a}
+.feat div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #33302a;font-size:14px}
+.feat div b{font-weight:600;color:var(--ink)}
+.feat div span{color:var(--ink2)}
+@media (min-width:560px){.feat div{grid-template-columns:160px 1fr}}
+</style>
+</head>
+<body>
+<main>
+<h1>Prop <em>for iPhone Duo</em></h1>
+<p class="lede">Working name. A free guitar stand that treats the hinge as the product: a tuner you can read from across the room when it's tented, a music stand when it's half folded, a songbook when it's open. Six poses, one app.</p>
+
+<!-- 1. closed tuner with halo -->
+<section>
+  <h2>Tented. The tuner you read from the amp.</h2>
+  <p class="pose">Opened ~70°, landscape, stood on its long edges like StandBy · near half of the inner display faces you, far half faces the wall</p>
+  <div class="stage tents">
+    <div><div class="tent s-far"><div class="wash"></div><div class="table"></div><div class="rig"><div class="near"><div class="far"></div><div class="ridge"></div><div class="scr"><div class="tunL"><div class="note">D<sub>2</sub></div><div class="rhs"><div class="cents">−41¢</div><div class="scale"><i style="left:0px"></i><i style="left:24px"></i><i style="left:72px"></i><i style="left:96px"></i><i class="mid" style="left:48px"></i><span class="pin" style="left:8px"></span></div><div class="word">tune up</div></div><div class="strings"><b>E</b><b>A</b><b>D</b><b>G</b><b>B</b><b>e</b></div></div></div><div class="foot"></div></div></div></div><div class="cap">way flat · red on the wall</div></div>
+    <div><div class="tent s-flat"><div class="wash"></div><div class="table"></div><div class="rig"><div class="near"><div class="far"></div><div class="ridge"></div><div class="scr"><div class="tunL"><div class="note">E<sub>2</sub></div><div class="rhs"><div class="cents">−9¢</div><div class="scale"><i style="left:0px"></i><i style="left:24px"></i><i style="left:72px"></i><i style="left:96px"></i><i class="mid" style="left:48px"></i><span class="pin" style="left:36px"></span></div><div class="word">almost</div></div><div class="strings"><b class=on>E</b><b>A</b><b>D</b><b>G</b><b>B</b><b>e</b></div></div></div><div class="foot"></div></div></div></div><div class="cap">close · amber</div></div>
+    <div><div class="tent s-tune"><div class="wash"></div><div class="table"></div><div class="rig"><div class="near"><div class="far"></div><div class="ridge"></div><div class="scr"><div class="tunL"><div class="note">E<sub>2</sub></div><div class="rhs"><div class="cents">+1¢</div><div class="scale"><i style="left:0px"></i><i style="left:24px"></i><i style="left:72px"></i><i style="left:96px"></i><i class="mid" style="left:48px"></i><span class="pin" style="left:49px"></span></div><div class="word">in tune</div></div><div class="strings"><b class=on>E</b><b>A</b><b>D</b><b>G</b><b>B</b><b>e</b></div></div></div><div class="foot"></div></div></div></div><div class="cap">in tune · green</div></div>
+  </div>
+  <p class="note">Your concept: tent the Duo like the StandBy alarm. The near half of the inner display is the tuner; the far half is pointed at the wall and the table, so it becomes a lamp: solid red, amber, or green, flooding the surface behind the phone the way StandBy's alarm washes a nightstand. <b>You don't read the cents, you read the room.</b> Slide across the strings bar to lock a target note, or leave it on auto.</p>
+</section>
+
+<!-- 2. half fold stand -->
+<section>
+  <h2>Half folded. The stand.</h2>
+  <p class="pose">Inner display, ~95° · sits on a music stand, amp, or your knee</p>
+  <div class="fold">
+    <div class="dev">
+      <div class="half top">
+        <div class="scr">
+          <div class="chart">
+            <div class="t">Slow Train Out of Monessen</div>
+            <div class="m">original · capo 2 · 92 bpm · ¾ time</div>
+            <div class="bars">
+              <div>G<span>1</span></div><div>G<span>2</span></div><div>C<span>3</span></div><div>D<span>4</span></div>
+              <div class="now">Em<span>5</span></div><div>C<span>6</span></div><div>G<span>7</span></div><div>D<span>8</span></div>
+              <div>G<span>9</span></div><div>Bm<span>10</span></div><div>C<span>11</span></div><div>D<span>12</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hinge"></div>
+      <div class="half bot">
+        <div class="scr">
+          <div class="ctl">
+            <div class="pad">
+              <div class="k">Metronome</div>
+              <div class="v">92<small>bpm</small></div>
+              <div class="beat"><i class="on"></i><i></i><i></i></div>
+            </div>
+            <div class="pad">
+              <div class="k">Capo</div>
+              <div class="v">2</div>
+              <div class="row"><b>−</b><b>+</b></div>
+            </div>
+            <div class="pad">
+              <div class="k">Loop bars 5–8</div>
+              <div class="loop"><b></b><i></i></div>
+              <div class="row"><b class="on">on</b><b>½×</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Built on the new ArrangementView: the chart is the top pane, controls are the bottom pane, split mode so neither obscures the other. The chart auto-scrolls to the metronome, so the highlighted bar is always the one you're playing. <b>The bottom half lies flat, which is where your thumb lands anyway.</b> Tuner shrinks to a green dot in the corner and only expands when it hears a string being plucked alone.</p>
+</section>
+
+<!-- 3. fully open songbook -->
+<section>
+  <h2>Open. The songbook.</h2>
+  <p class="pose">Inner 7.6″ display · regular size class both ways, so it's an iPad layout</p>
+  <div class="stage">
+    <div class="dev open">
+      <div class="scr">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="two">
+          <div class="side">
+            <div class="h">Tuesday practice</div>
+            <div class="row on">Slow Train Out of Monessen <span>3:40</span></div>
+            <div class="row">Rust Belt Waltz <span>2:55</span></div>
+            <div class="row">Charleroi Lockwall <span>4:12</span></div>
+            <div class="row">Untitled in D <span>—</span></div>
+            <div class="sec">Sets</div>
+            <div class="row">Open mic · Sept 26 <span>6</span></div>
+            <div class="row">Ski trip songs <span>11</span></div>
+          </div>
+          <div class="body">
+            <div class="chart" style="padding:0">
+              <div class="t" style="font-size:18px">Slow Train Out of Monessen</div>
+              <div class="m">key of A (capo 2, G shapes) · 92 bpm · ¾</div>
+              <div class="bars">
+                <div>G</div><div>G</div><div>C</div><div>D</div>
+                <div>Em</div><div>C</div><div>G</div><div>D</div>
+                <div>G</div><div>Bm</div><div>C</div><div>D</div>
+                <div>Em</div><div>Em</div><div>C</div><div>G</div>
+              </div>
+              <div class="chips" style="margin-top:12px"><b class="on">Chords</b><b>Tab</b><b>Chart</b><b>Notes</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Setlists on the left, chart on the right. Import from ChordPro, a pasted tab, a PDF, or a photo of a napkin. This is also where the community lives: <b>share a setlist as a link, the recipient opens it in Prop or as plain text.</b> No account required either way.</p>
+</section>
+
+<!-- 4. split view with lesson -->
+<section>
+  <h2>Open, split. Learn it while you read it.</h2>
+  <p class="pose">Inner display · Prop in one half, a lesson video in the other</p>
+  <div class="stage">
+    <div class="dev open">
+      <div class="scr">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="split">
+          <div class="l">
+            <div class="chart" style="padding:0">
+              <div class="t">Travis pattern, key of G</div>
+              <div class="m">exercise · 60 bpm</div>
+              <div class="bars" style="grid-template-columns:repeat(2,1fr)">
+                <div class="now">G<span>thumb 6·4</span></div><div>C<span>thumb 5·4</span></div>
+                <div>D<span>thumb 4·4</span></div><div>G<span>thumb 6·4</span></div>
+              </div>
+              <div class="chips" style="margin-top:12px"><b class="on">Loop</b><b>60</b><b>72</b><b>84</b></div>
+            </div>
+          </div>
+          <div class="r">
+            <div class="vid"><b>Fingerstyle basics · 12:04</b></div>
+            <div class="scrub"><i></i></div>
+            <div class="chips"><b class="on">0.75×</b><b>1×</b><b>A–B</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="note">This one is free: iOS 27.1 Split View gives it to you. The work is making sure Prop's half-width layout with asymmetric safe areas doesn't fall apart, which is the case Apple says most layout bugs show up in. <b>Tempo in Prop can follow the video's playback rate,</b> so slowing the lesson slows your click.</p>
+</section>
+
+<!-- 5. pencil annotations -->
+<section>
+  <h2>Open, with Pencil. Mark up the chart.</h2>
+  <p class="pose">Inner display · Apple Pencil</p>
+  <div class="stage">
+    <div class="dev open">
+      <div class="scr">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="body" style="color:#fff;height:100%">
+          <div class="chart" style="padding:0;position:relative">
+            <div class="t" style="font-size:18px">Rust Belt Waltz</div>
+            <div class="m">original · no capo · 108 bpm · ¾</div>
+            <div class="bars">
+              <div>D</div><div>A</div><div>Bm</div><div>G</div>
+              <div>D</div><div>A</div><div>G</div><div>D</div>
+              <div>Bm</div><div>F#m</div><div>G</div><div>A</div>
+              <div>D</div><div>A</div><div>G</div><div>D</div>
+            </div>
+            <svg class="ink" viewBox="0 0 330 200" style="left:0;top:0;width:100%;height:200px">
+              <path d="M18 92 c6 -10 18 -12 26 -2"/>
+              <path d="M236 82 c12 -18 34 -14 40 2"/>
+              <text x="200" y="62">walk down here</text>
+              <path d="M88 140 l0 40"/>
+              <path d="M84 148 l4 -8 4 8"/>
+              <text x="62" y="196">hammer-on</text>
+              <path d="M300 100 c-8 26 -30 34 -52 26"/>
+              <text x="212" y="146">ritard.</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Ink lives in a layer over the chart and stays anchored to bars when you transpose or change the capo. <b>Scribbles are the thing every paper-chart player misses on a screen,</b> and the Duo is the first iPhone that can hold a Pencil. Two-finger tap to toggle ink on the stand pose too.</p>
+</section>
+
+<!-- 6. cover screen standby -->
+<section>
+  <h2>Tented. The click.</h2>
+  <p class="pose">Same tent pose · near half shows the count, far half pulses the wall</p>
+  <div class="stage tents">
+    <div><div class="tent s-flat"><div class="wash"></div><div class="table"></div><div class="rig"><div class="near"><div class="far"></div><div class="ridge"></div><div class="scr"><div class="standL"><div><div class="bpm">108</div><div class="lbl">Rust Belt Waltz · ¾ · bar 9</div></div><div class="beat"><i class=on></i><i></i><i></i></div></div></div><div class="foot"></div></div></div></div><div class="cap">downbeat flashes the wall amber</div></div>
+    <div><div class="tent s-tune"><div class="wash"></div><div class="table"></div><div class="rig"><div class="near"><div class="far"></div><div class="ridge"></div><div class="scr"><div class="standL"><div><div class="bpm">4/8</div><div class="lbl">looping bars 9–12</div></div><div class="beat"><i class=on></i><i class=on></i><i class=on></i><i class=on></i><i></i><i></i><i></i><i></i></div></div></div><div class="foot"></div></div></div></div><div class="cap">loop pass counter</div></div>
+  </div>
+  <p class="note">Same lamp trick, different job: the far half pulses the wall on the downbeat so you get a visual click in your peripheral vision without staring at a screen. <b>Nothing to tap, nothing to unlock.</b> Tent it mid-song and the metronome carries on; lay it flat open and the chart is where you left it.</p>
+</section>
+
+<!-- feature map -->
+<section>
+  <h2>Where each feature lives</h2>
+  <div class="feat">
+    <div><b>Tuner</b><span>Tented: near half is the tuner, far half is a color lamp. Stand: corner dot, expands on a lone plucked string. Open: sidebar.</span></div>
+    <div><b>Metronome</b><span>Every pose. Tent pose is visual-first: the wall pulses.</span></div>
+    <div><b>Charts and tabs</b><span>Stand and open poses. Chords, tab, and free-form chart views; auto-scroll tied to tempo.</span></div>
+    <div><b>Capo and transpose</b><span>One control, two numbers: shapes you play and key you hear.</span></div>
+    <div><b>Looper</b><span>Bar-range loop with slowdown, in the stand's bottom pane and on the tented near half as a pass counter.</span></div>
+    <div><b>Setlists</b><span>Open pose sidebar. Shareable as a link, readable without the app.</span></div>
+    <div><b>Pencil ink</b><span>Open pose, anchored to bars so it survives transposition.</span></div>
+    <div><b>Split View</b><span>Anything beside Prop; tempo can follow a video's playback rate.</span></div>
+  </div>
+  <p class="note">Everything is local and free. The only network feature is the setlist share link, and it's a plain-text fallback so nobody is forced to install anything.</p>
+</section>
+</main>
+</body>
+</html>
