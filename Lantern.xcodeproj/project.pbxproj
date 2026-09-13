@@ -6,6 +6,10 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5BF2CF0130573857008B8178 /* LanternCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5BF2CF0330573857008B8178 /* LanternCore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5BF2CEB930573857008B8178 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -51,6 +55,7 @@
 		5BF2CEA630573856008B8178 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				5BF2CF0130573857008B8178 /* LanternCore in Frameworks */,
 			);
 		};
 		5BF2CEB530573857008B8178 /* Frameworks */ = {
@@ -103,6 +108,9 @@
 				5BF2CEAB30573856008B8178 /* Lantern */,
 			);
 			name = Lantern;
+			packageProductDependencies = (
+				5BF2CF0330573857008B8178 /* LanternCore */,
+			);
 			productName = Lantern;
 			productReference = 5BF2CEA930573856008B8178 /* Lantern.app */;
 			productType = "com.apple.product-type.application";
@@ -181,6 +189,9 @@
 			);
 			mainGroup = 5BF2CEA030573856008B8178;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5BF2CF0230573857008B8178 /* XCLocalSwiftPackageReference "Packages/LanternCore" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5BF2CEAA30573856008B8178 /* Products */;
 			projectDirPath = "";
@@ -391,7 +402,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -423,7 +434,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -444,7 +455,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lantern.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Lantern";
 			};
@@ -466,7 +477,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lantern.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Lantern";
 			};
@@ -486,7 +497,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Lantern;
 			};
@@ -506,7 +517,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Lantern;
 			};
@@ -548,6 +559,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		5BF2CF0230573857008B8178 /* XCLocalSwiftPackageReference "Packages/LanternCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/LanternCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5BF2CF0330573857008B8178 /* LanternCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LanternCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5BF2CEA130573856008B8178 /* Project object */;
 	validationLevel = 1;
