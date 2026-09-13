@@ -79,3 +79,59 @@ which is worth a lot when tuning a pitch detector. Nothing in Core imports UIKit
 The Xcode template left `SWIFT_VERSION = 5.0` on all three targets, and §2.4 calls for Swift 6
 strict concurrency. Changed now, while the only app code is the template, so there's no migration to
 do later. Builds clean.
+
+## 2026-09-13 — Build order step 2: tuner audio + UI
+
+### The template's SwiftData scaffolding is gone
+
+`ContentView.swift` and `Item.swift` were Xcode's SwiftData sample, and the app's root is now
+`TunerView`. SwiftData comes back at step 6 for setlists, where there's an actual model to store.
+
+### Analysis does not run on the audio thread
+
+`TunerEngine`'s tap only copies samples into a `Mutex`-protected pending buffer and kicks a serial
+queue. Detection — roughly a millisecond per frame — happens on that queue. YIN would comfortably
+fit inside the ~23 ms hop, but a tap block can be called on a real-time thread, and a tuner has no
+reason to gamble on it.
+
+### The sample rate comes from the hardware, not from the spec
+
+Handoff section 4 says 44.1 kHz. iPhones hand you 48 kHz. `TunerEngine` reads
+`inputNode.outputFormat(forBus:)` **after** activating the session — an inactive session reports
+0 Hz — and builds both the detector and the tracker from whatever rate it gets. Nothing downstream
+assumes 44.1.
+
+### `.measurement` mode
+
+The session uses `.record` with mode `.measurement`, which switches off the input processing chain.
+Automatic gain control and noise suppression both bend pitch, which is the one thing this app
+cannot tolerate.
+
+### Layout is keyed on size class, never orientation
+
+Per handoff section 3. `verticalSizeClass == .compact` selects the tented layout; everything else
+gets the upright one. No orientation checks anywhere.
+
+### The lamp is the far half of the same view, for now
+
+Until 27.1 says whether a third-party app can address the far half of the inner display in tent
+pose, the lamp is simply the right half of `TentedLayout`. That is also what makes it useful on a
+plain iPhone laid on its side, so it earns its place either way rather than being dead code waiting
+on an SDK.
+
+### Two bugs that only running it would have found
+
+- `.task` and the `scenePhase` → `.active` handler both called `start()` on launch. The first was
+  still awaiting the permission dialog, so `isListening` was still false and the second slipped
+  through — and a second `requestRecordPermission` while one is pending is refused outright, so a
+  first launch reported "permission denied" with the dialog still on screen. Guarded with
+  `isStarting`, and `MicrophoneAccess.request()` now short-circuits when permission is already
+  granted.
+- `StartError` had no `LocalizedError` conformance, so users saw "error 0".
+
+### This Mac cannot test the audio path
+
+The Mac mini has no audio input device at all — only HDMI and built-in speakers — so the Simulator
+has no microphone to forward and `TunerEngine` correctly reports no input route. The detection math
+is covered by unit tests, but **the microphone path can only be exercised on the phone**, or by
+plugging a USB mic or interface into the Mac.

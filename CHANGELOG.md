@@ -15,5 +15,13 @@
   synthetic plucks at every open string at 0, ±5 and ±20 cents: worst case **0.068 cents**, mean
   **0.014 cents**, against a ±1 cent target.
 
+- **Audio**: `TunerEngine` (AVAudioEngine input tap, `.measurement` session, hardware sample rate,
+  analysis off the audio thread) and `MicrophoneAccess`.
+- Tuner UI: upright and tented layouts chosen by size class, cents dial, string row with
+  tap-to-pin, tuning picker, and the lamp as a solid colour fill.
+- Microphone usage description.
+
 ### Changed
 - App, unit-test and UI-test targets moved from Swift 5 to Swift 6 language mode, per handoff §2.4.
+- App root is now `TunerView`; the SwiftData template (`ContentView`, `Item`) is gone until
+  setlists need it.
