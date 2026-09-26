@@ -385,6 +385,7 @@
 				DEVELOPMENT_TEAM = UZSE262U9E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Lantern-Info.plist";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Lantern listens through the microphone to tune your guitar. Audio is analysed on device, and is never recorded or sent anywhere.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -418,6 +419,7 @@
 				DEVELOPMENT_TEAM = UZSE262U9E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Lantern-Info.plist";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Lantern listens through the microphone to tune your guitar. Audio is analysed on device, and is never recorded or sent anywhere.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

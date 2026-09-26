@@ -11,7 +11,11 @@ import SwiftUI
 struct LanternApp: App {
     var body: some Scene {
         WindowGroup {
-            TunerView()
+            if #available(iOS 27.1, *) {
+                DuoProbeView()
+            } else {
+                TunerView()
+            }
         }
     }
 }
