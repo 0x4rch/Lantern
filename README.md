@@ -1,14 +1,16 @@
 # Lantern
 
-A guitar tuner for iPhone, started as a practice app built around the iPhone Duo's fold poses.
-The idea was a tent-pose tuner: stand the phone up like an alarm clock and let half the inner
-display light the wall red, amber or green, so you read the colour instead of the needle.
+An exploration of what a third-party app can do with the iPhone Duo's fold poses, using a guitar
+tuner as the test case. The question: stand the phone up in a tent like an alarm clock, and can an
+app light part of the display as a lamp, red, amber or green, so you read the colour instead of the
+needle?
 
-**It's shelved.** The tuner works. The tent-pose lamp turned out not to fit the hardware: the Duo
-folds inward, so in a tent both inner halves face the table, and a third-party app can't draw on
-the outer screen. The `duo-probe` branch has the experiment that found that out.
+**Where it landed:** the tuner works. The tent-pose lamp doesn't fit what apps can do today. The
+Duo folds inward, so in a tent both inner halves face the table, and only Apple's own features,
+like the system alarm, can use the outer screen at the same time. The `duo-probe` branch has the
+experiment that found that out.
 
-The code is here because the pitch detection is worth more read than sitting in a private repo.
+The pitch detection is the most reusable part, so it's here to read.
 
 ## What's in it
 
