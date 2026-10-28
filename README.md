@@ -1,14 +1,18 @@
 # Lantern
 
 An exploration of what a third-party app can do with the iPhone Duo's fold poses, using a guitar
-tuner as the test case. The question: stand the phone up in a tent like an alarm clock, and can an
-app light part of the display as a lamp, red, amber or green, so you read the colour instead of the
-needle?
+tuner as the test case. The idea: stand the phone up in a tent like an alarm clock, show the reading
+on the outer screen, and let both inner displays light the table underneath red, amber or green, so
+you can read the colour from across the room.
 
-**Where it landed:** the tuner works. The tent-pose lamp doesn't fit what apps can do today. The
-Duo folds inward, so in a tent both inner halves face the table, and only Apple's own features,
-like the system alarm, can use the outer screen at the same time. The `duo-probe` branch has the
-experiment that found that out.
+**Where it landed:** the tuner works, and so does the glow. In a tent, a foreground app keeps both
+inner halves lit and can paint them any colour. The outer screen is the problem: there's no API for
+an app to draw on it while the inner display is in use. Apple's own alarm does exactly this
+combination, but it isn't open to developers in iOS 27.1. The `duo-probe` branch has the experiment
+that found that out.
+
+`PROP_HANDOFF.md` is the brief the build started from. It describes the tent inside out, with the
+tuner on an inner half and the lamp facing the wall, and the mockups follow it.
 
 The pitch detection is the most reusable part, so it's here to read.
 
